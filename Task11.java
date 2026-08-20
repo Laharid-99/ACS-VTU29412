@@ -1,0 +1,15 @@
+class Task11 {
+    public ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        // Move fast pointer 2 steps and slow pointer 1 step at a time
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        // When fast reaches the end, slow is at the middle node
+        return slow;
+    }
+}
