@@ -1,0 +1,19 @@
+public class Task17 {         
+    public ListNode detectCycle(ListNode head) {                 
+        ListNode fastPointer = head;         
+        ListNode slowPointer = head;                        
+        while (fastPointer != null && fastPointer.next != null) {             
+            slowPointer = slowPointer.next;                     
+            fastPointer = fastPointer.next.next;                  
+            if (slowPointer == fastPointer) {                                                   
+                ListNode startPointer = head;                                              
+                     while (startPointer != slowPointer) {                    
+                     startPointer = startPointer.next;                     
+                    slowPointer = slowPointer.next;                 
+                }                                               
+                return startPointer;            
+            }         
+        }                        
+        return null;     
+    } 
+}
